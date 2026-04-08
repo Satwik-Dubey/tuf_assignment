@@ -1,29 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
-:root {
-  --font-family: 'Outfit', sans-serif;
-  --bg-color: #f1f5f9;
-  --text-dark: #1e293b;
-  --text-light: #64748b;
-  --text-inverse: #ffffff;
-
-  --primary: #047857;
-  --primary-hover: #065f46;
-  --primary-light: #d1fae5;
-
-  --calendar-bg: #ffffff;
-
-  --shadow-calendar: 15px 25px 40px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.1);
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-
-  --wall-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   font-family: var(--font-family);
@@ -48,6 +27,31 @@ body {
   align-items: center;
   min-height: 100vh;
   justify-content: center;
+}
+
+:root {
+  --font-family: 'Outfit', sans-serif;
+  --bg-color: #f1f5f9;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --text-inverse: #ffffff;
+
+  --primary: #047857;
+  --primary-hover: #065f46;
+  --primary-light: #d1fae5;
+
+  --calendar-bg: #ffffff;
+
+  --shadow-calendar: 15px 25px 40px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  --wall-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .calendar-wrapper {
