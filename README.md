@@ -1,42 +1,40 @@
-# Interactive Wall Calendar Component
+# True Interactive Wall Calendar
 
-A polished, fully responsive, and interactive React component styled to emulate a physical wall calendar. Created for the TUF Frontend Engineering Challenge.
+A meticulously designed, interactive physical wall calendar simulation built with React and Vite. The goal of this project was to step away from repetitive software dashboards and build an interface that feels wonderfully tactile—capturing the grand aspect ratio, generous negative space, and physical feel of an actual coffee table or desk calendar.
 
-## ✨ Features
+## Key Features & Design Choices
 
-- **Wall Calendar Aesthetic**: Detailed physical design elements like a realistic spiral binding, off-white paper texture aesthetic, distinct drop shadows, and a prominent hero image spanning the top (desktop/mobile layout adapting dynamically).
-- **Day Range Selector**: Click once to select a start date, click again for an end date. Dynamic CSS styling distinguishes the start date, end date, and in-between dates flawlessly.
-- **Integrated Notes**: A dynamic persistence component integrated with `localStorage`. Your notes persist smartly depending on what date range or month you are currently looking at. It will save specific memos for selected ranges, or general memos for the month.
-- **Dark/Light Mode**: Smooth theme toggling that changes the palette from clean daytime whites to deep slate blues.
-- **Fully Responsive**: Adapts playfully via CSS constraints and Grid/Flexbox layouts. Mobile collapses to a stacked column while Desktop spreads out natively. 
-- **Strictly Frontend**: No backend API dependencies; everything runs purely client-side.
+- **Stable Footprint Engineering**: Utilizes `date-fns` to reliably lock the grid engine. Every page forcefully renders exactly 6 uniform weeks (42 days) regardless of the month's offset, preventing any jarring "layout popping" or vertical resizing between month transitions.
+- **Physical Desk Interface**: Split elegantly into a 2:1 Hero-to-Calendar UI on large viewports, overlaid natively with a spiral-binding illustration that pushes the bounds of a normal application panel.
+- **Micro-Interactions**: Hover over calendar grid dates to find parallax-zoom on the hero illustration and smooth tooltip reveals for encoded National Public Holidays.
+- **Click-and-Drag Context**: Integrated global DOM listeners (`mouseup`/`mousedown`) allowing native click-and-drag range selection natively across day cells.
+- **Zero-Friction Notes**: The dynamic right side notes panel contextually targets and manages memos for single days, ranges, or broad monthly goals automatically in `localStorage`. Implements an intelligent 500ms debouncing algorithm that silently saves progress without bulky "Save Changes" form buttons polluting the UI.
+- **Thematic Month Shading**: Uses an underlying CSS variables engine that dynamically parses logic and shifts the HSL palette of gradients, outlines, and badges depending entirely on what month the user navigates into. 
 
-## 🛠 Tech Stack
+## Technology Stack
+- **Framework:** React + Vite
+- **Styling:** Pure Modern CSS, Responsive Media Queries, and highly specific class management (no heavy library constraints to achieve the true custom paper design). 
+- **Utilities:** `date-fns` for clean, lightweight chronological tracking. `lucide-react` for SVG iconography. 
 
-- **React & Vite**: Extremely fast scaffolding and hot module replacement natively.
-- **Vanilla CSS**: Kept strictly to an overarching `index.css` leveraging dynamic CSS variables for structural logic and themes, as requested. No Tailwind used.
-- **Date-Fns**: Comprehensive date management functionality abstracting typical JavaScript Date woes for generating correct grids.
-- **Lucide React**: Clean, elegant vector icon implementation.
+## How to Run Locally
 
-## 🚀 Running Locally
+To get this app running on your local machine, open your terminal and follow these steps:
 
-1. Ensure you have Node.js installed (v18+ recommended).
-2. Clone this repository and navigate to the project root: `cd tuf_assignment`
-3. Install dependencies:
+1. **Clone the repository:**
+   ```bash
+   git clone [your-repo-link]
+   cd tuf_assignment
+   ```
+
+2. **Install the dependencies:**
    ```bash
    npm install
    ```
-4. Start the development server:
+
+3. **Start the Vite development server:**
    ```bash
    npm run dev
    ```
-5. Open your browser and navigate to `http://localhost:5173`.
 
-## 🎨 Design Decisions
-
-*   **Variables for Theme Control**: The entirety of the color system relies on CSS root properties. The `data-theme="dark"` attribute flips these values to provide a very smooth native dark mode.
-*   **Grid over Table**: Calendar structural grids are inherently native CSS `grid`. It prevents typical table-layout snapping behavior and works well responsively.
-*   **Backdrop Filter**: Implemented a slight glassmorphism on the calendar card where it overlays subtle background patterns to evoke a premium native feel.
-*   **Micro-interactions**: Hovering over dates pops them with quick spring-like transform scales `scale(1.1)`. Elements have very specific `transition` definitions to guide the user's eye softly.
-
-Enjoy the application!
+4. **Launch the Calendar:**
+   Open your browser and navigate automatically to the Local URL provided in your terminal (typically `http://localhost:5173`).
